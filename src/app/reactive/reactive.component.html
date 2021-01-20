@@ -1,0 +1,29 @@
+<!-- <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+  </form> -->
+<form [formGroup]="userForm">
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Entrer votre nom</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="nom">
+    </mat-form-field>
+    <!-- <span *ngIf="userForm.controls['nom'].invalid && userForm.controls['nom'].touched">error</span> -->
+   <span *ngIf="userForm.controls.nom.errors.minlength"> le nom doit avoir un min de 4 lettres</span>
+</p>
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Entrer votre email</mat-label>
+      <input matInput placeholder="Placeholder" formControlName="email">
+    </mat-form-field>
+    <span *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">error</span>
+
+</p>
+</form>
